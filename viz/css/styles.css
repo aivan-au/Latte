@@ -1,0 +1,589 @@
+body {
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Toolbar */
+.top-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    height: 48px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* File Input Icon */
+.file-input-container {
+    position: relative;
+}
+
+.file-input-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.file-input-label:hover {
+    background: #f0f0f0;
+    border-color: #999;
+}
+
+.file-input-label svg {
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.file-input-label:hover svg {
+    color: #333;
+}
+
+/* Metadata Inline */
+.metadata-inline {
+    font-size: 13px;
+    color: #666;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+}
+
+/* Search Container */
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    padding: 0 8px;
+    transition: border-color 0.2s ease;
+}
+
+.search-input-wrapper:focus-within {
+    border-color: rgb(79, 70, 229);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.search-icon {
+    color: #999;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px 0;
+    width: 200px;
+    font-size: 13px;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    color: #333;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.clear-search {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    margin-left: 4px;
+    border-radius: 2px;
+    color: #999;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clear-search:hover {
+    background: #f0f0f0;
+    color: #666;
+}
+
+/* Level Slider */
+.level-slider-container {
+    display: flex;
+    align-items: center;
+}
+
+.level-slider {
+    width: 120px;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.level-slider::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: rgb(79, 70, 229);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.level-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: rgb(79, 70, 229);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.level-slider::-webkit-slider-track {
+    background: #e0e0e0;
+    height: 4px;
+    border-radius: 2px;
+}
+
+.level-slider::-moz-range-track {
+    background: #e0e0e0;
+    height: 4px;
+    border-radius: 2px;
+    border: none;
+}
+
+/* Icon Toggles */
+.icon-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.icon-toggle:hover {
+    background: #f0f0f0;
+    border-color: #999;
+}
+
+.icon-toggle svg {
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.icon-toggle:hover svg {
+    color: #333;
+}
+
+/* Active state for toggles */
+.icon-toggle.active {
+    background: rgb(79, 70, 229);
+    border-color: rgb(79, 70, 229);
+}
+
+.icon-toggle.active svg {
+    color: #ffffff;
+}
+
+.icon-toggle.active:hover {
+    background: rgb(67, 56, 202);
+    border-color: rgb(67, 56, 202);
+}
+
+/* Smart Tooltips */
+.smart-tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+}
+
+.smart-tooltip.show {
+    opacity: 1;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    overflow: hidden;
+    min-height: 0; /* Important: allows flex child to shrink below content size */
+    position: relative;
+}
+
+#tree-container {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    overflow: hidden;
+    min-height: 0; /* Important: allows flex child to shrink below content size */
+}
+
+/* Right Sidebar - Now as overlay */
+.right-sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: #f8f9fa;
+    border-left: 1px solid #e0e0e0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    transition: width 0.2s ease;
+}
+
+/* Resize Handle */
+.resize-handle {
+    position: absolute;
+    top: 0;
+    left: -5px;
+    width: 10px;
+    height: 100%;
+    cursor: col-resize;
+    background: transparent;
+    z-index: 11;
+    user-select: none;
+}
+
+.resize-handle::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60px;
+    background: #999;
+    border-radius: 2px;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.resize-handle:hover::after {
+    opacity: 1;
+    background: #333;
+    width: 4px;
+    height: 80px;
+}
+
+/* Sidebar Empty State */
+.sidebar-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    text-align: center;
+}
+
+.empty-icon {
+    margin-bottom: 16px;
+}
+
+.empty-text {
+    color: #999;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Cluster Details */
+.cluster-details {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+
+/* Cluster Summary */
+.cluster-summary {
+    margin-bottom: 20px;
+    padding: 0;
+    background: none;
+    border: none;
+    flex-shrink: 0;
+}
+
+.cluster-summary p {
+    margin: 0 0 8px 0;
+    line-height: 1.5;
+    color: #333;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.mask-proportion {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Cluster Titles */
+.cluster-titles {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.cluster-titles h4 {
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.sample-note, .total-count {
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+}
+
+.titles-list {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.title-item {
+    display: flex;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: flex-start;
+}
+
+.title-item:last-child {
+    border-bottom: none;
+}
+
+.title-number {
+    color: #999;
+    font-size: 12px;
+    min-width: 20px;
+    padding-top: 2px;
+}
+
+.title-text {
+    flex: 1;
+    line-height: 1.4;
+    color: #333;
+}
+
+.title-text.search-highlight {
+    background-color: #fff3cd;
+    font-weight: 500;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Bottom Footer */
+.bottom-footer {
+    padding: 8px 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    flex-shrink: 0;
+}
+
+.bottom-footer a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.bottom-footer a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+/* Tree Visualization */
+.node circle {
+    stroke: #333;
+    stroke-width: 1.5px;
+    cursor: pointer;
+}
+
+.node circle.selected {
+    stroke-width: 6px !important;
+}
+
+/* Search highlighting styles - dot indicator */
+.search-dot {
+    fill: #000000;
+    stroke: none;
+    animation: pulse-search-dot 1.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse-search-dot {
+    0%, 100% {
+        r: 3;
+        opacity: 0.9;
+    }
+    50% {
+        r: 4;
+        opacity: 1;
+    }
+}
+
+.node text {
+    font: 12px sans-serif;
+    fill: #333;
+}
+
+.link {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+}
+
+/* Level filtering via CSS classes */
+.node.level-hidden {
+    display: none;
+}
+
+.link.level-hidden {
+    display: none;
+}
+
+/* Annotation visibility control */
+.annotations.annotations-hidden {
+    display: none;
+}
+
+.annotation-label.level-hidden,
+.annotation-background.level-hidden,
+.annotation-connector.level-hidden {
+    display: none;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    padding: 12px;
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    pointer-events: none;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    max-width: 350px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tooltip.show {
+    opacity: 1;
+}
+
+/* Annotation Labels */
+.annotation-label {
+    font-size: 14px;
+    font-weight: normal;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    fill: #333;
+    text-anchor: middle;
+    pointer-events: none;
+    opacity: 1;
+}
+
+.annotation-background {
+    fill: rgba(255, 255, 255, 0.9);
+    stroke: none;
+    opacity: 1;
+}
+
+.annotation-connector {
+    stroke: #999;
+    stroke-width: 0.5px;
+    opacity: 0.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .right-sidebar {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .right-sidebar {
+        display: none;
+    }
+    
+    .toolbar-left {
+        gap: 10px;
+    }
+    
+    .toolbar-right {
+        gap: 8px;
+    }
+} 

@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "total_documents": 5,
+    "total_clusters": 3,
+    "max_level": 2,
+    "mask_baseline_proportion": 0.2,
+    "mask_min_proportion": 0.0,
+    "mask_max_proportion": 1.0
+  },
+  "titles": [
+    "Machine learning in computer vision",
+    "Natural language processing techniques",
+    "Deep learning for image recognition",
+    "Statistical analysis methods",
+    "Data visualization best practices"
+  ],
+  "clusters": [
+    {
+      "id": 10,
+      "level": 2,
+      "size": 5,
+      "point_indices": [0, 1, 2, 3, 4],
+      "parent_id": null,
+      "children_ids": [11, 12],
+      "annotation": "Technical topics in data science and machine learning",
+      "mask_proportion": 0.2,
+      "mask_normalized_proportion": 0.0
+    },
+    {
+      "id": 11,
+      "level": 1,
+      "size": 3,
+      "point_indices": [0, 1, 2],
+      "parent_id": 10,
+      "children_ids": [],
+      "annotation": "Machine learning and AI techniques",
+      "mask_proportion": 0.33,
+      "mask_normalized_proportion": 0.15
+    },
+    {
+      "id": 12,
+      "level": 1,
+      "size": 2,
+      "point_indices": [3, 4],
+      "parent_id": 10,
+      "children_ids": [],
+      "annotation": "Data analysis and visualization methods",
+      "mask_proportion": 0.0,
+      "mask_normalized_proportion": -1.0
+    }
+  ]
+}

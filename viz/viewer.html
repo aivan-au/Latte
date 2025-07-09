@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LATTE Cluster Tree Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Top Toolbar -->
+    <div class="top-toolbar">
+        <div class="toolbar-left">
+            <div class="file-input-container">
+                <label for="jsonFile" class="file-input-label" title="Load LATTE JSON file">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14,2 14,8 20,8"></polyline>
+                    </svg>
+                </label>
+                <input type="file" id="jsonFile" accept=".json" style="display: none;">
+            </div>
+            <div id="metadata" class="metadata-inline" style="display: none;"></div>
+            <div class="search-container" style="display: none;">
+                <div class="search-input-wrapper">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="M21 21l-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search titles..." title="Search in document titles">
+                    <button id="clearSearch" class="clear-search" title="Clear search" style="display: none;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="level-slider-container" style="display: none;">
+                <input type="range" id="levelSlider" class="level-slider" min="0" max="10" value="10" title="Filter by cluster level">
+            </div>
+        </div>
+        
+        <div class="toolbar-right">
+            <div class="icon-toggle" id="showMaskToggle" title="Show mask proportions">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+            </div>
+            <div class="icon-toggle" id="showAnnotationsToggle" title="Show all annotations">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div id="tree-container"></div>
+        <div class="right-sidebar">
+            <div class="resize-handle"></div>
+            <!-- Future content will go here -->
+        </div>
+    </div>
+    
+    <!-- Bottom Footer -->
+    <div class="bottom-footer">
+        <span>powered by <a href="https://github.com/aivan-au/latte" target="_blank">Latte ☕</a></span>
+    </div>
+    
+    <div class="tooltip" id="tooltip"></div>
+
+    <!-- Load all JavaScript modules -->
+    <script src="js/utils.js"></script>
+    <script src="js/data-manager.js"></script>
+    <script src="js/tree-renderer.js"></script>
+    <script src="js/annotation-system.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/sidebar-resize.js"></script>
+    <script src="js/smart-tooltips.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

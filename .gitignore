@@ -1,0 +1,18 @@
+# Virtual environment
+venv/
+
+# Data files (Stack Exchange datasets - downloadable from internet)
+data/
+embeddings/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Environment variables and API keys
+.env
+
+# Private content (add your private folders/files here)
+meta/
+
+# Claude
+.claude
